@@ -1,5 +1,4 @@
 <?php include"connection.php"; ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +17,6 @@
   <link rel="stylesheet" href="css/AdminLTE.min.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="css/blue.css">
-
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
@@ -48,18 +46,15 @@
         <!-- /.col -->
       </div>
     </form>
-
     <a href="#">I forgot my password</a><br>
     <a href="registration.php" class="text-center">Register a new membership</a>
-
 <?php
     if(isset($_POST["submit1"]))
     {
         $count=0;
         $password = md5($_POST['password']);
         $result=mysqli_query($link,"select * from student_registration where username='$_POST[username]' && password='$password' && status='yes' ");
-        $count=mysqli_num_rows($result);
-        
+        $count=mysqli_num_rows($result);   
         if($count==0)
         {
             ?>
@@ -75,12 +70,10 @@
         }
     }
 ?>
-
   </div>
   <!-- /.login-box-body -->
 </div>
 <!-- /.login-box -->
-
 <!-- jQuery 3 -->
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
