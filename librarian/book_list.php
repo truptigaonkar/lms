@@ -35,7 +35,7 @@ include "connection.php";
         <div class="box-body">
           <?php
           $result = mysqli_query($link, "select * from books");
-          echo "<table class='table table-bordered'>";
+          echo "<table class='table table-striped table-bordered table-hover'>";
           echo "<tr>"; 
             echo "<th>"; echo "Name"; echo "</th>";
             echo "<th>"; echo "Image"; echo "</th>";

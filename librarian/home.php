@@ -34,7 +34,7 @@ include"connection.php";
         <div class="box-body">
           <?php
             $result=mysqli_query($link,"select * from student_registration");
-            echo "<table class='table table-bordered'>";
+            echo "<table class='table table-striped table-bordered table-hover'>";
             echo "<tr>";
             echo "<th>"; echo "Firstname";  echo "</th>";
             echo "<th>"; echo "Lastname";  echo "</th>";
@@ -46,6 +46,7 @@ include"connection.php";
             echo "<th>"; echo "Status";  echo "</th>";
             echo "<th>"; echo "Approve";  echo "</th>";
             echo "<th>"; echo "Not Approve";  echo "</th>";
+            echo "<th>"; echo "Action";  echo "</th>";
             echo "</tr>";
             while($row=mysqli_fetch_array($result))
             {
@@ -60,6 +61,7 @@ include"connection.php";
               echo "<td>"; echo $row["status"];  echo "</td>";
               echo "<td>"; ?> <a href="approve.php?id=<?php echo $row["id"]; ?>">Approve</a> <?php  echo "</td>";
               echo "<td>"; ?> <a href="notapprove.php?id=<?php echo $row["id"]; ?>">Not Approve</a> <?php  echo "</td>";
+              echo "<td>"; ?> <a href="student_delete.php?id=<?php echo $row["id"]; ?>" onclick="return confirm('Are you sure to delete !'); " >Delete</a> <?php echo "</td>";
               echo "</tr>";
             }
             echo "</table>";
