@@ -8,7 +8,7 @@ include"connection.php";
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Students
+        Books
         <small>List</small>
       </h1>
       <ol class="breadcrumb">
@@ -33,33 +33,31 @@ include"connection.php";
         </div>
         <div class="box-body">
           <?php
-            $result=mysqli_query($link,"select * from student_registration");
+            $result=mysqli_query($link,"select * from books");
             echo "<table class='table table-bordered'>";
             echo "<tr>";
-            echo "<th>"; echo "Firstname";  echo "</th>";
-            echo "<th>"; echo "Lastname";  echo "</th>";
-            echo "<th>"; echo "Username";  echo "</th>";
-            echo "<th>"; echo "Email";  echo "</th>";
-            echo "<th>"; echo "Contact";  echo "</th>";
-            echo "<th>"; echo "Sem";  echo "</th>";
-            echo "<th>"; echo "Enrollment";  echo "</th>";
-            echo "<th>"; echo "Status";  echo "</th>";
-            echo "<th>"; echo "Approve";  echo "</th>";
-            echo "<th>"; echo "Not Approve";  echo "</th>";
+            echo "<th>"; echo "Name";  echo "</th>";
+            echo "<th>"; echo "Image";  echo "</th>";
+            echo "<th>"; echo "Author";  echo "</th>";
+            echo "<th>"; echo "Publication";  echo "</th>";
+            echo "<th>"; echo "Purchase Date";  echo "</th>";
+            echo "<th>"; echo "Price";  echo "</th>";
+            echo "<th>"; echo "Quantity";  echo "</th>";
+            echo "<th>"; echo "Available Quantity";  echo "</th>";
+            echo "<th>"; echo "Librarian Username";  echo "</th>";
             echo "</tr>";
             while($row=mysqli_fetch_array($result))
             {
               echo "<tr>";
-              echo "<td>"; echo $row["firstname"];  echo "</td>";
-              echo "<td>"; echo $row["lastname"];  echo "</td>";
-              echo "<td>"; echo $row["username"];  echo "</td>";
-              echo "<td>"; echo $row["email"];  echo "</td>";
-              echo "<td>"; echo $row["contact"];  echo "</td>";
-              echo "<td>"; echo $row["sem"];  echo "</td>";
-              echo "<td>"; echo $row["enrollment"];  echo "</td>";
-              echo "<td>"; echo $row["status"];  echo "</td>";
-              echo "<td>"; ?> <a href="approve.php?id=<?php echo $row["id"]; ?>">Approve</a> <?php  echo "</td>";
-              echo "<td>"; ?> <a href="notapprove.php?id=<?php echo $row["id"]; ?>">Not Approve</a> <?php  echo "</td>";
+              echo "<td>"; echo $row["name"];  echo "</td>";
+              echo "<td>"; echo $row["image"];  echo "</td>";
+              echo "<td>"; echo $row["author"];  echo "</td>";
+              echo "<td>"; echo $row["publication"];  echo "</td>";
+              echo "<td>"; echo $row["purchase_date"];  echo "</td>";
+              echo "<td>"; echo $row["price"];  echo "</td>";
+              echo "<td>"; echo $row["qty"];  echo "</td>";
+              echo "<td>"; echo $row["available_qty"];  echo "</td>";
+              echo "<td>"; echo $row["librarian_username"];  echo "</td>";
               echo "</tr>";
             }
             echo "</table>";
@@ -77,4 +75,3 @@ include"connection.php";
   </div>
   <!-- /.content-wrapper -->
 <?php include"includes/footer.php"; ?>
-
