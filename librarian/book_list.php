@@ -46,6 +46,7 @@ include "connection.php";
             echo "<th>"; echo "Quantity"; echo "</th>";
             echo "<th>"; echo "Available Quantity"; echo "</th>";
             echo "<th>"; echo "Librarian Username"; echo "</th>";
+            echo "<th>"; echo "Action"; echo "</th>";
           echo "</tr>";
           while ($row = mysqli_fetch_array($result)) {
             echo "<tr>";
@@ -58,6 +59,7 @@ include "connection.php";
               echo "<td>"; echo $row["qty"]; echo "</td>";
               echo "<td>"; echo $row["available_qty"]; echo "</td>";
               echo "<td>"; echo $row["librarian_username"]; echo "</td>";
+              echo "<td>"; ?> <a href="book_delete.php?id=<?php echo $row["id"]; ?>" onclick="return confirm('Are you sure to delete !'); " >Delete</a> <?php echo "</td>";
             echo "</tr>";
           }
           echo "</table>";
