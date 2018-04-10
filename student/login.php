@@ -65,7 +65,6 @@
         }
         else
         {
-            echo "login successfully";
             header("Location:home.php");    
         }
     }

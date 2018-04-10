@@ -55,7 +55,6 @@
         //$password = md5($_POST['password']);
         $result=mysqli_query($link,"select * from librarian_registration where username='$_POST[username]' && password='$_POST[password]' ");
         $count=mysqli_num_rows($result);
-        
         if($count==0)
         {
             ?>
@@ -66,12 +65,10 @@
         }
         else
         {
-            echo "login successfully";
             header("Location:home.php");    
         }
     }
 ?>
-
   </div>
   <!-- /.login-box-body -->
 </div>

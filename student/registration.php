@@ -80,7 +80,13 @@
     {
         $password = md5($_POST['password']); 
         mysqli_query($link,"insert into student_registration values('','$_POST[firstname]','$_POST[lastname]','$_POST[username]','$password','$_POST[email]','$_POST[contact]','$_POST[sem]','$_POST[enrollmentno]','no')");      
-        header("Location:login.php");   
+        ?>
+        <script type="text/javascript">
+            alert("Student Registered Successfully");
+            window.location = "home.php";
+            exit;
+        </script>
+        <?php   
     }
 ?>
 
