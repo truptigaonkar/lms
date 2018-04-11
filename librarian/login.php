@@ -1,4 +1,7 @@
-<?php include"connection.php"; ?>
+<?php 
+session_start();
+include "connection.php"; 
+?>
 
 <!DOCTYPE html>
 <html>
@@ -49,26 +52,24 @@
       </div>
     </form>
 <?php
-    if(isset($_POST["submit1"]))
-    {
-        $count=0;
+if (isset($_POST["submit1"])) {
+  $count = 0;
         //$password = md5($_POST['password']);
-        $result=mysqli_query($link,"select * from librarian_registration where username='$_POST[username]' && password='$_POST[password]' ");
-        $count=mysqli_num_rows($result);
-        if($count==0)
-        {
-            ?>
+  $result = mysqli_query($link, "select * from librarian_registration where username='$_POST[username]' && password='$_POST[password]' ");
+  $count = mysqli_num_rows($result);
+  if ($count == 0) {
+    ?>
                 <div class="alert alert-warning col-lg-12 col-lg-push-0">
                     <strong style="color:white">Invalid</strong> Username Or Password.
                 </div>
             <?php
+
+          } else {
+          $_SESSION["librarian"]=$_POST["username"];
+            header("Location:home.php");
+          }
         }
-        else
-        {
-            header("Location:home.php");    
-        }
-    }
-?>
+        ?>
   </div>
   <!-- /.login-box-body -->
 </div>

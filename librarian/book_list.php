@@ -1,7 +1,16 @@
 <?php 
-include "includes/header.php";
-include "includes/sidebar.php";
-include "connection.php";
+session_start();
+if(!isset($_SESSION["librarian"]))
+{
+  ?>
+    <script type="text/javascript">
+      window.location="login.php";
+    </script>
+  <?php
+}
+include"includes/header.php"; 
+include"includes/sidebar.php";
+include"connection.php";
 ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -59,7 +68,7 @@ include "connection.php";
               echo "<td>"; echo $row["qty"]; echo "</td>";
               echo "<td>"; echo $row["available_qty"]; echo "</td>";
               echo "<td>"; echo $row["librarian_username"]; echo "</td>";
-              echo "<td>"; ?> <a href="book_delete.php?id=<?php echo $row["id"]; ?>" onclick="return confirm('Are you sure to delete !'); " >Delete</a> <?php echo "</td>";
+              echo "<td>"; ?> <a href="book_delete.php?id=<?php echo $row["id"]; ?>" onclick="return confirm('Are you sure to delete !'); " class="label label-danger" >Delete</a> <?php echo "</td>";
             echo "</tr>";
           }
           echo "</table>";

@@ -1,7 +1,16 @@
 <?php 
-include "includes/header.php";
-include "includes/sidebar.php";
-include "connection.php";
+session_start();
+if(!isset($_SESSION["librarian"]))
+{
+  ?>
+    <script type="text/javascript">
+      window.location="login.php";
+    </script>
+  <?php
+}
+include"includes/header.php"; 
+include"includes/sidebar.php";
+include"connection.php";
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">

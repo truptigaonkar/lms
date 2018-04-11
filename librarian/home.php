@@ -1,4 +1,13 @@
 <?php 
+session_start();
+if(!isset($_SESSION["librarian"]))
+{
+  ?>
+    <script type="text/javascript">
+      window.location="login.php";
+    </script>
+  <?php
+}
 include"includes/header.php"; 
 include"includes/sidebar.php";
 include"connection.php";
@@ -59,9 +68,9 @@ include"connection.php";
               echo "<td>"; echo $row["sem"];  echo "</td>";
               echo "<td>"; echo $row["enrollment"];  echo "</td>";
               echo "<td>"; echo $row["status"];  echo "</td>";
-              echo "<td>"; ?> <a href="approve.php?id=<?php echo $row["id"]; ?>">Approve</a> <?php  echo "</td>";
-              echo "<td>"; ?> <a href="notapprove.php?id=<?php echo $row["id"]; ?>">Not Approve</a> <?php  echo "</td>";
-              echo "<td>"; ?> <a href="student_delete.php?id=<?php echo $row["id"]; ?>" onclick="return confirm('Are you sure to delete !'); " >Delete</a> <?php echo "</td>";
+              echo "<td>"; ?> <a href="approve.php?id=<?php echo $row["id"]; ?>" class="label label-success" >Approve</a> <?php  echo "</td>";
+              echo "<td>"; ?> <a href="notapprove.php?id=<?php echo $row["id"]; ?>" class="label label-warning" >Not Approve</a> <?php  echo "</td>";
+              echo "<td>"; ?> <a href="student_delete.php?id=<?php echo $row["id"]; ?>" onclick="return confirm('Are you sure to delete !'); " class="label label-danger" >Delete</a> <?php echo "</td>";
               echo "</tr>";
             }
             echo "</table>";

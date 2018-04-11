@@ -1,5 +1,4 @@
 <?php include"connection.php"; ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,15 +80,12 @@
         $password = md5($_POST['password']); 
         mysqli_query($link,"insert into student_registration values('','$_POST[firstname]','$_POST[lastname]','$_POST[username]','$password','$_POST[email]','$_POST[contact]','$_POST[sem]','$_POST[enrollmentno]','no')");      
         ?>
-        <script type="text/javascript">
-            alert("Student Registered Successfully");
-            window.location = "home.php";
-            exit;
-        </script>
+            <div class="alert alert-success col-lg-12 col-lg-push-0">
+                Registration successfully, You will get email when your account is approved.
+            </div>
         <?php   
     }
 ?>
-
   </div>
   <!-- /.login-box-body -->
 </div>
